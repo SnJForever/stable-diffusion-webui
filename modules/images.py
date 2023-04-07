@@ -18,6 +18,10 @@ import string
 import json
 import hashlib
 
+import oss2
+import requests
+import time
+
 from modules import sd_samplers, shared, script_callbacks, errors
 from modules.shared import opts, cmd_opts
 
@@ -608,6 +612,8 @@ def save_image(image, path, basename, seed=None, prompt=None, extension='png', i
 
     script_callbacks.image_saved_callback(params)
 
+    objectKey="sd-images/%s" % (fullfn)
+    upload_oss(fullfn,objectKey)
     return fullfn, txt_fullfn
 
 
@@ -677,3 +683,22 @@ def flatten(img, bgcolor):
         img = background
 
     return img.convert('RGB')
+
+def upload_oss(file_url,oss_name):
+    oss_key = os.environ.get('OSS_KEY', "")
+    oss_secret = os.environ.get('OSS_SECRET', "")
+    oss_bucket = os.environ.get('OSS_BUCKET', "")
+    print(oss_key,oss_secret,oss_bucket)
+    auth = oss2.Auth(oss_key, oss_secret,oss_bucket)
+    
+    bucket = oss2.Bucket(auth, 'oss-cn-shanghai.aliyuncs.com', oss_bucket)
+    object_name = oss_name
+
+    headers = dict()
+
+    url = bucket.sign_url('PUT', object_name, 60, slash_safe=True, headers=headers)
+    print('签名URL的地址为：', url)
+
+    res = requests.put(url, data=open(file_url, 'rb').read(), headers=headers)
+    get_url = bucket.sign_url('GET', object_name, 60, slash_safe=True, headers=headers)    
+    return get_url
