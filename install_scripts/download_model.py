@@ -1,8 +1,8 @@
 
 from torch.hub import download_url_to_file
 
-MODEL_PATH='/content/gdrive/stable-diffusion-webui/models/Stable-diffusion'
-LORA_PATH='/content/gdrive/stable-diffusion-webui/models/Lora'
+MODEL_PATH='/content/gdrive/MyDrive/stable-diffusion-webui/models/Stable-diffusion'
+LORA_PATH='/content/gdrive/MyDrive/stable-diffusion-webui/models/Lora'
 
 # SD 1.5
 download_url_to_file('https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt', MODEL_PATH+'/v1-5-pruned-emaonly.ckpt', hash_prefix=None, progress=True)
