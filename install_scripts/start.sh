@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p /content/gdrive/stable-diffusion-webui/models/Stable-diffusion
-mkdir -p /content/gdrive/stable-diffusion-webui/models/Lora
+mkdir -p /content/gdrive/MyDrive/stable-diffusion-webui/models/Stable-diffusion
+mkdir -p /content/gdrive/MyDrive/stable-diffusion-webui/models/models/Lora
 
 python /content/stable-diffusion-webui/install_scripts/download_model.py
 
@@ -11,6 +11,6 @@ git clone https://github.com/dtlnor/stable-diffusion-webui-localization-zh_CN
 git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
 git clone https://github.com/yfszzx/stable-diffusion-webui-images-browser
 
-ln -s /content/gdrive/stable-diffusion-webui/models/Stable-diffusion /content/stable-diffusion-webui/models/Stable-diffusion
-ln -s /content/gdrive/stable-diffusion-webui/models/Lora /content/stable-diffusion-webui/models/Lora
+ln -s /content/gdrive/MyDrive/stable-diffusion-webui/models/Stable-diffusion /content/stable-diffusion-webui/models/Stable-diffusion
+ln -s /content/gdrive/MyDrive/stable-diffusion-webui/models/Lora /content/stable-diffusion-webui/models/Lora
 
