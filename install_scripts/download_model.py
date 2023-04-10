@@ -1,5 +1,3 @@
-from google.colab import drive
-drive.mount('/content/gdrive')
 
 from torch.hub import download_url_to_file
 
