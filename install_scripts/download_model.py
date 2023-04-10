@@ -2,8 +2,11 @@
 from torch.hub import download_url_to_file
 import os
 
-MODEL_PATH='/content/gdrive/MyDrive/stable-diffusion-webui/models/Stable-diffusion'
-LORA_PATH='/content/gdrive/MyDrive/stable-diffusion-webui/models/Lora'
+# MODEL_PATH='/content/gdrive/MyDrive/stable-diffusion-webui/models/Stable-diffusion'
+# LORA_PATH='/content/gdrive/MyDrive/stable-diffusion-webui/models/Lora'
+
+MODEL_PATH='/content/stable-diffusion-webui/models/Stable-diffusion'
+LORA_PATH='/content/stable-diffusion-webui/models/Lora'
 
 def download_url_check_to_file(url,path,hash_prefix,progress):
     if not os.path.exists(path):
@@ -16,7 +19,7 @@ def download_url_check_to_file(url,path,hash_prefix,progress):
 download_url_check_to_file('https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt', MODEL_PATH+'/v1-5-pruned-emaonly.ckpt', hash_prefix=None, progress=True)
 
 # 模型 https://civitai.com/models/6424/chilloutmix
-download_url_check_to_file('https://civitai.com/api/download/models/11745', MODEL_PATH+'chilloutmix-Ni-pruned-fp32-fix.safetensors', hash_prefix=None, progress=True)
+download_url_check_to_file('https://civitai.com/api/download/models/11745', MODEL_PATH+'/chilloutmix-Ni-pruned-fp32-fix.safetensors', hash_prefix=None, progress=True)
 
 # https://civitai.com/models/4823/deliberate
 download_url_check_to_file('https://civitai.com/api/download/models/15236', MODEL_PATH+'/deliberate_v2.safetensors', hash_prefix=None, progress=True)
@@ -31,7 +34,7 @@ download_url_check_to_file('https://civitai.com/api/download/models/31884', MODE
 download_url_check_to_file('https://civitai.com/api/download/models/32964', MODEL_PATH+'/xsarchitectural_.safetensors', hash_prefix=None, progress=True)
 
 # 墨心 https://civitai.com/models/12597/moxin
-download_url_check_to_file('https://civitai.com/api/download/models/14856', LORA_PATH+'Moxin_10.safetensors', hash_prefix=None, progress=True)
+download_url_check_to_file('https://civitai.com/api/download/models/14856', LORA_PATH+'/Moxin_10.safetensors', hash_prefix=None, progress=True)
 
 # 舒克走马 https://civitai.com/api/download/models/20143
-download_url_check_to_file('https://civitai.com/api/download/models/20143', LORA_PATH+'sukezouma11.safetensors', hash_prefix=None, progress=True)
+download_url_check_to_file('https://civitai.com/api/download/models/20143', LORA_PATH+'/sukezouma11.safetensors', hash_prefix=None, progress=True)
