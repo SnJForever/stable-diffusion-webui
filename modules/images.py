@@ -689,7 +689,7 @@ def upload_oss(file_url,oss_name):
     oss_secret = os.environ.get('OSS_SECRET', "")
     oss_bucket = os.environ.get('OSS_BUCKET', "")
     print(oss_key,oss_secret,oss_bucket)
-    auth = oss2.Auth(oss_key, oss_secret,oss_bucket)
+    auth = oss2.Auth(oss_key, oss_secret)
     
     bucket = oss2.Bucket(auth, 'oss-cn-shanghai.aliyuncs.com', oss_bucket)
     object_name = oss_name
